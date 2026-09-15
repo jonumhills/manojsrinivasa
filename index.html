@@ -120,21 +120,6 @@
     flex:none;
   }
   .id .name{ font-weight:600; font-size:15px; }
-  .id .role{
-    font-size:11px; color:var(--muted); letter-spacing:.06em; text-transform:uppercase;
-  }
-  nav.top-links{
-    display:flex; gap:18px;
-    font-size:12.5px;
-    letter-spacing:.03em;
-  }
-  nav.top-links a{
-    text-decoration:none;
-    color:var(--muted);
-    border-bottom:1px solid transparent;
-    padding-bottom:2px;
-  }
-  nav.top-links a:hover{ color:var(--fg); border-color:var(--border); }
 
   /* ---------- hero ---------- */
   .eyebrow{
@@ -419,44 +404,6 @@
     font-weight:500;
   }
 
-  /* ---------- experience ---------- */
-  .jobs{
-    display:flex;
-    flex-direction:column;
-  }
-  .job{
-    display:grid;
-    grid-template-columns:120px 1fr;
-    gap:16px;
-    padding:16px 0;
-    border-top:1px solid var(--border);
-  }
-  .job:last-child{ border-bottom:1px solid var(--border); }
-  .job .when{
-    font-family:"JetBrains Mono", monospace;
-    font-size:12px;
-    color:var(--muted);
-    padding-top:2px;
-  }
-  .job .co{
-    font-size:16px;
-    font-weight:700;
-  }
-  .job .role{
-    font-size:13.5px;
-    color:var(--muted);
-    margin-top:2px;
-  }
-  @media (max-width:560px){
-    .job{ grid-template-columns:1fr; gap:4px; }
-  }
-  .fine{
-    font-size:12px;
-    color:var(--muted);
-    margin-top:16px;
-    font-style:italic;
-  }
-
   /* ---------- footer ---------- */
   footer{
     border-top:1px solid var(--border);
@@ -512,14 +459,8 @@
       <div class="mark">MS</div>
       <div>
         <div class="name">Manoj Srinivasa</div>
-        <div class="role">builder / on-and-off founder</div>
       </div>
     </div>
-    <nav class="top-links">
-      <a href="#track">track record</a>
-      <a href="#wins">hackathons</a>
-      <a href="#jobs">experience</a>
-    </nav>
   </header>
 
   <div class="eyebrow">a running tally, updated as things happen</div>
@@ -709,45 +650,6 @@
       </div>
 
     </div>
-  </section>
-
-  <section id="jobs">
-    <div class="section-head">
-      <h2>on paper <span class="count">(4)</span></h2>
-    </div>
-    <p class="section-sub">the parts of the story that came with a paycheck.</p>
-
-    <div class="jobs">
-      <div class="job">
-        <div class="when">2022&ndash;23*</div>
-        <div>
-          <div class="co">Medfilo</div>
-          <div class="role">role tbd</div>
-        </div>
-      </div>
-      <div class="job">
-        <div class="when">2021&ndash;22*</div>
-        <div>
-          <div class="co">Endsideout</div>
-          <div class="role">role tbd</div>
-        </div>
-      </div>
-      <div class="job">
-        <div class="when">2021</div>
-        <div>
-          <div class="co">Solarwinds</div>
-          <div class="role">role tbd</div>
-        </div>
-      </div>
-      <div class="job">
-        <div class="when">2020</div>
-        <div>
-          <div class="co">Merkle</div>
-          <div class="role">role tbd</div>
-        </div>
-      </div>
-    </div>
-    <p class="fine">* exact dates and titles pending &mdash; ordering assumed, not confirmed.</p>
   </section>
 
   <footer>
