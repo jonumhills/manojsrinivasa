@@ -4,74 +4,53 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Manoj Srinivasa</title>
-<meta name="description" content="A track record of ventures — wins, one failure, and what's still building.">
+<meta name="description" content="A running list of what I'm building, a click-to-reveal failure record, and the hackathon streak.">
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 
   :root{
-    --bg:#f6f5f0;
+    --bg:#f7f6f2;
     --surface:#ffffff;
-    --surface-2:#efeee7;
-    --border:#dcd9cf;
-    --fg:#171510;
-    --muted:#6c6759;
-    --accent:#0f9d4c;      /* won / building-out */
-    --accent-ink:#ffffff;
-    --fail:#c22b3f;
-    --fail-bg:#f8e6e8;
-    --building:#a8690a;
-    --building-bg:#f7ecd8;
-    --nonprofit:#0e8f97;
-    --nonprofit-bg:#e2f2f2;
-    --featured:#6d3fc4;
-    --featured-bg:#efe6fb;
-    --new-c:#1d5fbf;
-    --new-bg:#e2ebfb;
-    --shadow:0 10px 30px rgba(20,18,10,.08);
+    --border:#e2ddd0;
+    --fg:#1c1a15;
+    --muted:#726c5c;
+    --accent:#8a6d3b;
+
+    --c-featured:#1f9d52;
+    --c-building:#b9822a;
+    --c-failed:#c23b30;
+    --c-nonprofit:#7c5cc9;
+    --c-new:#3f7dc9;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#0b0d0b;
-      --surface:#14171a;
-      --surface-2:#1a1e1c;
-      --border:#292e29;
-      --fg:#eae7dd;
-      --muted:#8b9089;
-      --accent:#33e667;
-      --accent-ink:#062012;
-      --fail:#ff6b6b;
-      --fail-bg:#2a1414;
-      --building:#ffb000;
-      --building-bg:#2a2008;
-      --nonprofit:#3ed7d0;
-      --nonprofit-bg:#0e2222;
-      --featured:#c9a8ff;
-      --featured-bg:#231a33;
-      --new-c:#7aa9ff;
-      --new-bg:#101d33;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --bg:#0e0d0b;
+      --surface:#161512;
+      --border:#2b2822;
+      --fg:#efece2;
+      --muted:#948d7a;
+      --accent:#d3b273;
+
+      --c-featured:#3ec97a;
+      --c-building:#e3ac52;
+      --c-failed:#e2574c;
+      --c-nonprofit:#a98be8;
+      --c-new:#6aa8ee;
     }
   }
   :root[data-theme="dark"]{
-    --bg:#0b0d0b;
-    --surface:#14171a;
-    --surface-2:#1a1e1c;
-    --border:#292e29;
-    --fg:#eae7dd;
-    --muted:#8b9089;
-    --accent:#33e667;
-    --accent-ink:#062012;
-    --fail:#ff6b6b;
-    --fail-bg:#2a1414;
-    --building:#ffb000;
-    --building-bg:#2a2008;
-    --nonprofit:#3ed7d0;
-    --nonprofit-bg:#0e2222;
-    --featured:#c9a8ff;
-    --featured-bg:#231a33;
-    --new-c:#7aa9ff;
-    --new-bg:#101d33;
-    --shadow:0 10px 30px rgba(0,0,0,.35);
+    --bg:#0e0d0b;
+    --surface:#161512;
+    --border:#2b2822;
+    --fg:#efece2;
+    --muted:#948d7a;
+    --accent:#d3b273;
+
+    --c-featured:#3ec97a;
+    --c-building:#e3ac52;
+    --c-failed:#e2574c;
+    --c-nonprofit:#a98be8;
+    --c-new:#6aa8ee;
   }
 
   *{box-sizing:border-box;}
@@ -83,345 +62,290 @@
     padding:0 20px;
     -webkit-font-smoothing:antialiased;
   }
-  ::selection{ background:var(--accent); color:var(--accent-ink); }
+  ::selection{ background:var(--accent); color:var(--bg); }
 
-  .mono{
-    font-family:"JetBrains Mono", ui-monospace, monospace;
-  }
-
+  .mono{ font-family:"JetBrains Mono", ui-monospace, monospace; }
   a{ color:inherit; }
 
   .wrap{
-    max-width:720px;
+    max-width:680px;
     margin:0 auto;
-    padding-block:56px 80px;
+    padding-block:52px 80px;
   }
 
   /* ---------- header ---------- */
   header.top{
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    gap:16px;
-    margin-bottom:44px;
-  }
-  .id{
-    display:flex;
-    align-items:center;
     gap:12px;
+    margin-bottom:48px;
   }
   .mark{
-    width:34px; height:34px;
+    width:32px; height:32px;
     border-radius:8px;
-    background:var(--accent);
-    color:var(--accent-ink);
+    border:1px solid var(--border);
+    color:var(--fg);
     display:flex; align-items:center; justify-content:center;
-    font-weight:700; font-size:15px;
+    font-weight:700; font-size:13px;
     flex:none;
   }
-  .id .name{ font-weight:600; font-size:15px; }
-
-  /* ---------- hero ---------- */
-  .eyebrow{
-    font-size:12px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:var(--accent);
-    margin-bottom:14px;
-    font-weight:600;
-  }
-  h1{
-    font-size:clamp(30px, 6vw, 48px);
-    line-height:1.08;
-    font-weight:700;
-    letter-spacing:-.01em;
-    margin:0 0 18px;
-    text-wrap:balance;
-  }
-  .lede{
-    font-size:16.5px;
-    line-height:1.65;
-    color:var(--muted);
-    max-width:58ch;
-    margin:0;
-  }
-  .lede b{ color:var(--fg); font-weight:600; }
+  .name{ font-weight:600; font-size:15px; }
 
   /* ---------- ticker ---------- */
   .ticker{
-    margin:40px 0 46px;
+    margin-bottom:44px;
     border-top:1px solid var(--border);
     border-bottom:1px solid var(--border);
     overflow:hidden;
-    padding:11px 0;
-    background:var(--surface-2);
+    padding:10px 0;
   }
   .ticker-track{
     display:flex;
     width:max-content;
-    gap:0;
-    animation:scroll 26s linear infinite;
+    animation:scroll 28s linear infinite;
   }
   @media (prefers-reduced-motion: reduce){ .ticker-track{ animation:none; } }
   .ticker-track span{
-    font-size:12px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
     letter-spacing:.08em;
     color:var(--muted);
-    padding:0 22px;
+    padding:0 20px;
     white-space:nowrap;
     border-right:1px solid var(--border);
   }
-  @keyframes scroll{
-    from{ transform:translateX(0); }
-    to{ transform:translateX(-50%); }
-  }
-
-  /* ---------- stats ---------- */
-  .stats{
-    display:grid;
-    grid-template-columns:repeat(5, 1fr);
-    gap:1px;
-    background:var(--border);
-    border:1px solid var(--border);
-    border-radius:10px;
-    overflow:hidden;
-    margin-bottom:20px;
-  }
-  .stat{
-    background:var(--surface);
-    padding:16px 12px;
-    text-align:center;
-  }
-  .stat .num{
-    font-size:26px;
-    font-weight:700;
-    font-variant-numeric:tabular-nums;
-  }
-  .stat .lbl{
-    margin-top:4px;
-    font-size:10px;
-    letter-spacing:.05em;
-    text-transform:uppercase;
-    color:var(--muted);
-    line-height:1.3;
-  }
-  @media (max-width:560px){
-    .stats{ grid-template-columns:repeat(2, 1fr); }
-    .stat:nth-child(5){ grid-column:1 / -1; }
-  }
-
-  .stat-note{
-    font-size:13px;
-    color:var(--muted);
-    text-align:center;
-    margin:0 0 56px;
-  }
+  @keyframes scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 
   /* ---------- section heads ---------- */
   .section-head{
     display:flex;
     align-items:baseline;
-    justify-content:space-between;
-    margin-bottom:6px;
-    gap:10px;
+    gap:8px;
+    margin-bottom:4px;
   }
   .section-head h2{
-    font-size:22px;
+    font-size:21px;
     margin:0;
     font-weight:700;
+    text-wrap:balance;
   }
-  .section-head .count{ color:var(--muted); font-weight:500; }
+  .section-head .count{ color:var(--muted); font-weight:500; font-size:16px; }
   .section-sub{
     color:var(--muted);
     font-size:13.5px;
     margin:0 0 22px;
+    max-width:56ch;
   }
-  section{ margin-bottom:58px; }
+  section{ margin-bottom:56px; }
 
-  /* ---------- breakdown (donut) ---------- */
-  .breakdown{
+  /* ---------- project rows (first content) ---------- */
+  .plist{ display:flex; flex-direction:column; }
+  .prow{
+    padding:18px 0;
+    border-top:1px solid var(--border);
+  }
+  .prow:last-child{ border-bottom:1px solid var(--border); }
+  .prow-head{
     display:flex;
     align-items:center;
-    gap:28px;
-    padding:20px;
-    border:1px solid var(--border);
-    border-radius:12px;
-    background:var(--surface);
-    margin-bottom:58px;
-  }
-  .donut{
-    flex:none;
-    width:104px; height:104px;
-    border-radius:50%;
-    background:conic-gradient(
-      var(--fail) 0% 20%,
-      var(--building) 20% 40%,
-      var(--nonprofit) 40% 60%,
-      var(--featured) 60% 80%,
-      var(--new-c) 80% 100%
-    );
-    display:flex; align-items:center; justify-content:center;
-    position:relative;
-  }
-  .donut::after{
-    content:"";
-    position:absolute;
-    width:60px; height:60px;
-    border-radius:50%;
-    background:var(--surface);
-  }
-  .donut span{
-    position:relative;
-    font-family:"JetBrains Mono", monospace;
-    font-size:11px;
-    color:var(--muted);
-    text-align:center;
-    line-height:1.3;
-  }
-  .legend{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px 18px;
-    flex:1;
-  }
-  .legend-row{
-    display:flex; align-items:center; gap:8px;
-    font-size:12.5px;
-  }
-  .dot{ width:9px; height:9px; border-radius:2px; flex:none; }
-  .legend-row .k{ color:var(--muted); }
-  @media (max-width:560px){
-    .breakdown{ flex-direction:column; align-items:flex-start; }
-  }
-
-  /* ---------- timeline cards ---------- */
-  .track{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-  .card{
-    border:1px solid var(--border);
-    border-radius:12px;
-    background:var(--surface);
-    padding:20px 22px;
-    box-shadow:var(--shadow);
-  }
-  .card-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
+    gap:10px;
     flex-wrap:wrap;
-    margin-bottom:8px;
+    margin-bottom:5px;
   }
-  .card-title{
-    display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
-  }
-  .card-title h3{
-    font-size:18px;
+  .prow-head h3{
+    font-size:17px;
     margin:0;
     font-weight:700;
   }
-  .card-year{
-    font-size:12px;
-    color:var(--muted);
-  }
-  .badge{
+  .tag{
     font-family:"JetBrains Mono", monospace;
-    font-size:10.5px;
-    font-weight:700;
+    font-size:10px;
     letter-spacing:.06em;
     text-transform:uppercase;
-    padding:4px 9px;
-    border-radius:5px;
-    white-space:nowrap;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:999px;
+    padding:2px 9px;
   }
-  .badge.failed{ background:var(--fail-bg); color:var(--fail); }
-  .badge.building{ background:var(--building-bg); color:var(--building); }
-  .badge.nonprofit{ background:var(--nonprofit-bg); color:var(--nonprofit); }
-  .badge.featured{ background:var(--featured-bg); color:var(--featured); }
-  .badge.new{ background:var(--new-bg); color:var(--new-c); }
-
-  .card p{
+  .prow p{
     margin:0;
     font-size:14.5px;
     line-height:1.6;
-    color:var(--fg);
-  }
-  .card .via{
-    margin-top:10px;
-    font-size:12px;
     color:var(--muted);
+    max-width:60ch;
+  }
+  .prow a.plink{
+    display:inline-block;
+    margin-top:6px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:12px;
+    color:var(--fg);
+    text-decoration:none;
+    border-bottom:1px solid var(--border);
+  }
+  .prow a.plink:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* ---------- failure bar widget ---------- */
+  .failcard{
+    border:1px solid var(--border);
+    border-radius:16px;
+    background:var(--surface);
+    padding:22px 24px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .failcard:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+  .fc-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:18px;
+  }
+  .fc-head h2{
+    font-size:18px;
+    margin:0;
+    font-weight:600;
+  }
+  .fc-arrow{
+    font-size:18px;
+    color:var(--muted);
+    transition:transform .2s ease;
+    flex:none;
+  }
+  @media (prefers-reduced-motion: reduce){ .fc-arrow{ transition:none; } }
+  .failcard[aria-expanded="true"] .fc-arrow{ transform:rotate(90deg); }
+
+  .bar{
+    display:flex;
+    height:14px;
+    border-radius:999px;
+    overflow:hidden;
+    background:var(--border);
+    margin-bottom:16px;
+  }
+  .bar span{ display:block; height:100%; }
+
+  .fc-stats{
+    font-family:"JetBrains Mono", monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    text-align:center;
+    margin:0;
   }
 
-  /* ---------- hackathon streak ---------- */
-  .hwins{
+  /* ---------- detail timeline (revealed on click) ---------- */
+  #timeline{
+    margin-top:18px;
+    padding-top:6px;
+  }
+  #timeline[hidden]{ display:none; }
+  .trow{
+    padding:16px 0;
+    border-top:1px solid var(--border);
+  }
+  .trow:last-child{ border-bottom:1px solid var(--border); }
+  .trow-meta{
     display:flex;
-    flex-direction:column;
-    gap:12px;
-  }
-  .hwin{
-    border:1px solid var(--border);
-    border-radius:12px;
-    background:var(--surface);
-    padding:16px 20px;
-  }
-  .hwin-head{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:10px;
-  }
-  .hwin-name{ font-size:15.5px; font-weight:700; }
-  .hwin-cat{
-    font-size:10.5px;
-    color:var(--muted);
-    text-transform:uppercase;
-    letter-spacing:.05em;
-  }
-  .hwin-chips{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-  }
-  .chip{
+    align-items:center;
+    gap:7px;
     font-family:"JetBrains Mono", monospace;
     font-size:11px;
-    font-weight:600;
-    padding:5px 10px;
-    border-radius:6px;
-    background:var(--accent);
-    color:var(--accent-ink);
-    white-space:nowrap;
-  }
-  .chip.sub{
-    background:transparent;
+    letter-spacing:.04em;
+    text-transform:uppercase;
     color:var(--muted);
-    border:1px solid var(--border);
-    font-weight:500;
+    margin-bottom:6px;
   }
+  .trow-meta .dot{ width:7px; height:7px; border-radius:50%; flex:none; }
+  .trow h4{ font-size:15.5px; margin:0 0 4px; font-weight:700; }
+  .trow p{ margin:0; font-size:13.5px; line-height:1.6; color:var(--fg); max-width:60ch; }
+  .trow .tlinks{ margin-top:6px; font-family:"JetBrains Mono", monospace; font-size:11.5px; }
+  .trow .tlinks a{ color:var(--muted); text-decoration:none; border-bottom:1px solid var(--border); }
+  .trow .tlinks a:hover{ color:var(--accent); border-color:var(--accent); }
+
+  /* ---------- hackathon timeline ---------- */
+  .htimeline{ display:flex; flex-direction:column; }
+  .hrow{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:16px;
+    padding:14px 0;
+    border-top:1px solid var(--border);
+  }
+  .hrow:last-child{ border-bottom:1px solid var(--border); }
+  .hrow .when{
+    font-family:"JetBrains Mono", monospace;
+    font-size:12px;
+    color:var(--muted);
+    padding-top:2px;
+  }
+  .hrow .proj{ font-weight:700; font-size:14.5px; }
+  .hrow .evt{ color:var(--muted); font-size:13px; margin-top:2px; }
+  @media (max-width:520px){
+    .hrow{ grid-template-columns:1fr; gap:3px; }
+  }
+
+  /* ---------- thoughts ---------- */
+  blockquote{
+    margin:0 0 18px;
+    padding:0 0 0 20px;
+    border-left:3px solid var(--accent);
+  }
+  blockquote p{
+    margin:0 0 8px;
+    font-size:clamp(24px, 4.4vw, 32px);
+    font-weight:700;
+    line-height:1.2;
+    letter-spacing:-.01em;
+  }
+  blockquote cite{
+    font-style:normal;
+    font-family:"JetBrains Mono", monospace;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+  .mini-head{
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--muted);
+    margin:28px 0 12px;
+  }
+  .booklist{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .booklist li{
+    font-size:15px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--border);
+  }
+  .booklist b{ font-weight:700; }
+  .booklist .by{ color:var(--muted); }
 
   /* ---------- footer ---------- */
   footer{
     border-top:1px solid var(--border);
-    padding-top:26px;
+    padding-top:24px;
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
     gap:16px;
     flex-wrap:wrap;
   }
-  footer p{
-    font-size:12.5px;
-    color:var(--muted);
-    margin:0;
-    max-width:44ch;
-    line-height:1.6;
+  footer p{ font-size:12.5px; color:var(--muted); margin:0; }
+  .contact{
+    display:flex; gap:16px;
+    margin-top:10px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:12px;
   }
-  footer p a{ color:var(--fg); text-decoration:underline; text-decoration-color:var(--border); }
+  .contact a{ color:var(--muted); text-decoration:none; border-bottom:1px solid transparent; padding-bottom:1px; }
+  .contact a:hover{ color:var(--accent); border-color:var(--accent); }
   .theme-toggle{
     font-family:"JetBrains Mono", monospace;
     font-size:11px;
@@ -435,221 +359,202 @@
     cursor:pointer;
   }
   .theme-toggle:hover{ color:var(--fg); }
-  .contact{
-    display:flex;
-    gap:16px;
-    margin-top:10px;
-    font-family:"JetBrains Mono", monospace;
-    font-size:12px;
-  }
-  .contact a{
-    color:var(--muted);
-    text-decoration:none;
-    border-bottom:1px solid transparent;
-    padding-bottom:1px;
-  }
-  .contact a:hover{ color:var(--fg); border-color:var(--border); }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header class="top">
-    <div class="id">
-      <div class="mark">MS</div>
-      <div>
-        <div class="name">Manoj Srinivasa</div>
-      </div>
-    </div>
+    <div class="mark">MS</div>
+    <div class="name">Manoj Srinivasa</div>
   </header>
-
-  <div class="eyebrow">a running tally, updated as things happen</div>
-  <h1>how many times have i actually tried so far</h1>
-  <p class="lede">
-    Five ventures on the board. <b>One</b> won a hackathon and a grant, then still didn't make it.
-    <b>One</b> is in MVP right now. <b>One</b> just started. <b>One</b> isn't trying to make money at all.
-    And <b>one</b> I didn't even found — I just strategized the product and shipped a feature — and it still ended up in CoinDesk.
-  </p>
 
   <div class="ticker" role="presentation" aria-hidden="true">
     <div class="ticker-track">
       <span>CHARGEHIVE</span><span>USZONING</span><span>EXPRESSKAAM</span><span>SNAKR</span><span>HABIFY</span>
       <span>ETHDENVER 2025</span><span>ETHDENVER 2026</span><span>ETHGLOBAL NYC 2026</span>
-      <span>HEDERA BOUNTY</span><span>PARKPULSE</span><span>TERRATRACE</span><span>TOWNHALL</span><span>ZONEPROOF</span>
-      <span>CONSENSUS MIAMI 2026</span><span>FEATURED ON COINDESK</span><span>MVP PHASE</span>
+      <span>PARKPULSE</span><span>TERRATRACE</span><span>TOWNHALL</span><span>ZONEPROOF</span>
+      <span>CONSENSUS MIAMI 2026</span><span>COINDESK</span>
       <span>CHARGEHIVE</span><span>USZONING</span><span>EXPRESSKAAM</span><span>SNAKR</span><span>HABIFY</span>
       <span>ETHDENVER 2025</span><span>ETHDENVER 2026</span><span>ETHGLOBAL NYC 2026</span>
-      <span>HEDERA BOUNTY</span><span>PARKPULSE</span><span>TERRATRACE</span><span>TOWNHALL</span><span>ZONEPROOF</span>
-      <span>CONSENSUS MIAMI 2026</span><span>FEATURED ON COINDESK</span><span>MVP PHASE</span>
+      <span>PARKPULSE</span><span>TERRATRACE</span><span>TOWNHALL</span><span>ZONEPROOF</span>
+      <span>CONSENSUS MIAMI 2026</span><span>COINDESK</span>
     </div>
   </div>
 
-  <div class="stats">
-    <div class="stat"><div class="num mono">5</div><div class="lbl">ventures tracked</div></div>
-    <div class="stat"><div class="num mono">9</div><div class="lbl">hackathons won</div></div>
-    <div class="stat"><div class="num mono">1</div><div class="lbl">grant won</div></div>
-    <div class="stat"><div class="num mono">1</div><div class="lbl">press hit</div></div>
-    <div class="stat"><div class="num mono">0</div><div class="lbl">still making money</div></div>
-  </div>
-  <p class="stat-note">winning the hackathon was never the hard part &mdash; that's just where the story starts.</p>
-
-  <div class="breakdown">
-    <div class="donut"><span>5<br>total</span></div>
-    <div class="legend">
-      <div class="legend-row"><span class="dot" style="background:var(--fail)"></span><span>Failed</span><span class="k">&mdash; ChargeHive</span></div>
-      <div class="legend-row"><span class="dot" style="background:var(--building)"></span><span>Building</span><span class="k">&mdash; USZoning</span></div>
-      <div class="legend-row"><span class="dot" style="background:var(--nonprofit)"></span><span>Non-profit</span><span class="k">&mdash; Expresskaam</span></div>
-      <div class="legend-row"><span class="dot" style="background:var(--featured)"></span><span>Featured</span><span class="k">&mdash; Snakr</span></div>
-      <div class="legend-row"><span class="dot" style="background:var(--new-c)"></span><span>New</span><span class="k">&mdash; Habify</span></div>
-    </div>
-  </div>
-
-  <section id="track">
+  <section id="projects">
     <div class="section-head">
-      <h2>the track record <span class="count">(5)</span></h2>
+      <h2>things i am working on and things i have built</h2>
+      <span class="count">(5)</span>
     </div>
-    <p class="section-sub">sorted by how it went, not by how it started.</p>
 
-    <div class="track">
+    <div class="plist">
 
-      <div class="card">
-        <div class="card-top">
-          <div class="card-title">
-            <h3>Habify</h3>
-            <span class="card-year mono">2026</span>
-          </div>
-          <span class="badge new">New</span>
+      <div class="prow">
+        <div class="prow-head">
+          <h3>USZoning</h3>
+          <span class="tag">MVP Phase</span>
         </div>
-        <p>A mobile app for building and tracking habits. Just started &mdash; too early to know which pile it lands in.</p>
+        <p>Zoning intelligence for U.S. government processes. The core idea has already won twice under other names, at ETHDenver and ETHGlobal NYC.</p>
+        <a class="plink" href="https://www.uszoning.com/" target="_blank" rel="noopener">uszoning.com</a>
       </div>
 
-      <div class="card">
-        <div class="card-top">
-          <div class="card-title">
-            <h3>USZoning</h3>
-            <span class="card-year mono">2026 &middot; MVP</span>
-          </div>
-          <span class="badge building">Building</span>
+      <div class="prow">
+        <div class="prow-head">
+          <h3>Habify</h3>
+          <span class="tag">Building</span>
         </div>
-        <p>The core idea has already won twice under other names &mdash; <b>Townhall</b> (ADI track, ETHDenver 2026) and <b>ZoneProof</b> (NoSDK Hedera track, ETHGlobal NYC 2026). Now doing the less glamorous part: actually building it, not just pitching it.</p>
-        <div class="via"><a href="https://www.uszoning.com/" target="_blank" rel="noopener">uszoning.com</a></div>
+        <p>A mobile app for building and tracking habits. Just started.</p>
       </div>
 
-      <div class="card">
-        <div class="card-top">
-          <div class="card-title">
-            <h3>ChargeHive</h3>
-            <span class="card-year mono">ETHDenver 2025</span>
-          </div>
-          <span class="badge failed">Failed</span>
+      <div class="prow">
+        <div class="prow-head">
+          <h3>ChargeHive</h3>
         </div>
-        <p>Won ETHDenver 2025. Won a Hedera grant off the back of it. Kept going for months after &mdash; still didn't survive.</p>
-        <div class="via">
-          <a href="https://devfolio.co/projects/chargehive-c25b" target="_blank" rel="noopener">project page</a> &middot;
-          <a href="https://www.youtube.com/watch?v=QwP7yNTC4tQ&list=PLAy4HNUNlzRmmKuiAVJcwnjMikeUBmluQ&index=36&t=26661s" target="_blank" rel="noopener">demo @ 7:24:21</a> &middot;
-          <a href="https://hedera.com/blog/announcing-the-winners-of-eth-denver-2025-hedera-bounties/" target="_blank" rel="noopener">Hedera winners post</a>
-        </div>
+        <p>Won ETHDenver 2025 and a Hedera grant off the back of it. Kept going for months after — still didn't survive.</p>
+        <a class="plink" href="https://devfolio.co/projects/chargehive-c25b" target="_blank" rel="noopener">project page</a>
       </div>
 
-      <div class="card">
-        <div class="card-top">
-          <div class="card-title">
-            <h3>Snakr</h3>
-            <span class="card-year mono">2026</span>
-          </div>
-          <span class="badge featured">Featured</span>
+      <div class="prow">
+        <div class="prow-head">
+          <h3>Snakr</h3>
         </div>
-        <p>Not the founder on this one. Came in to strategize product and ship a new recall feature at the <b>Consensus Miami (EasyA) Hackathon</b> &mdash; the project won, and <b>CoinDesk</b> covered it.</p>
-        <div class="via"><a href="https://www.coindesk.com/tech/2026/05/08/ai-agents-fueled-a-frenzy-of-startup-building-at-the-consensus-miami-easya-hackathon" target="_blank" rel="noopener">read the CoinDesk piece</a></div>
+        <p>Strategized product and shipped a new recall feature at the Consensus Miami (EasyA) Hackathon. The project won, and CoinDesk covered it.</p>
+        <a class="plink" href="https://www.coindesk.com/tech/2026/05/08/ai-agents-fueled-a-frenzy-of-startup-building-at-the-consensus-miami-easya-hackathon" target="_blank" rel="noopener">read the coverage</a>
       </div>
 
-      <div class="card">
-        <div class="card-top">
-          <div class="card-title">
-            <h3>Expresskaam</h3>
-            <span class="card-year mono">2026 &ndash; now</span>
-          </div>
-          <span class="badge nonprofit">Non-profit</span>
+      <div class="prow">
+        <div class="prow-head">
+          <h3>Expresskaam</h3>
         </div>
-        <p>The one on this list not trying to make a cent. Non-profit work, still running.</p>
-        <div class="via"><a href="https://www.expresskaam.com/" target="_blank" rel="noopener">expresskaam.com</a></div>
+        <p>Non-profit work, not trying to make a cent. Still running.</p>
+        <a class="plink" href="https://www.expresskaam.com/" target="_blank" rel="noopener">expresskaam.com</a>
       </div>
 
     </div>
   </section>
 
-  <section id="wins">
+  <section id="failbar" aria-label="how it's actually gone">
+    <div class="failcard" id="failToggle" role="button" tabindex="0" aria-expanded="false" aria-controls="timeline">
+      <div class="fc-head">
+        <h2>how many times have i failed so far</h2>
+        <span class="fc-arrow" aria-hidden="true">&#8594;</span>
+      </div>
+      <div class="bar" aria-hidden="true">
+        <span style="width:20%; background:var(--c-featured)"></span>
+        <span style="width:20%; background:var(--c-building)"></span>
+        <span style="width:20%; background:var(--c-failed)"></span>
+        <span style="width:20%; background:var(--c-nonprofit)"></span>
+        <span style="width:20%; background:var(--c-new)"></span>
+      </div>
+      <p class="fc-stats">5 ventures &middot; 1 failed &middot; 1 non&#8209;profit &middot; 1 featured &middot; 2 in progress</p>
+    </div>
+
+    <div id="timeline" hidden>
+
+      <div class="trow">
+        <div class="trow-meta"><span class="dot" style="background:var(--c-new)"></span>2026 &middot; new</div>
+        <h4>Habify</h4>
+        <p>Mobile habit tracker. Just started &mdash; too early to know which pile it lands in.</p>
+      </div>
+
+      <div class="trow">
+        <div class="trow-meta"><span class="dot" style="background:var(--c-building)"></span>2026 &middot; building</div>
+        <h4>USZoning</h4>
+        <p>MVP phase. The core idea already won twice under other names &mdash; Townhall (ADI track, ETHDenver 2026) and ZoneProof (NoSDK Hedera track, ETHGlobal NYC 2026).</p>
+        <div class="tlinks"><a href="https://www.uszoning.com/" target="_blank" rel="noopener">uszoning.com</a></div>
+      </div>
+
+      <div class="trow">
+        <div class="trow-meta"><span class="dot" style="background:var(--c-featured)"></span>2026 &middot; featured</div>
+        <h4>Snakr</h4>
+        <p>Not the founder on this one &mdash; came in to strategize product and ship a new recall feature at the Consensus Miami (EasyA) Hackathon. The project won, and CoinDesk covered it.</p>
+        <div class="tlinks"><a href="https://www.coindesk.com/tech/2026/05/08/ai-agents-fueled-a-frenzy-of-startup-building-at-the-consensus-miami-easya-hackathon" target="_blank" rel="noopener">CoinDesk piece</a></div>
+      </div>
+
+      <div class="trow">
+        <div class="trow-meta"><span class="dot" style="background:var(--c-nonprofit)"></span>2026 &middot; non&#8209;profit</div>
+        <h4>Expresskaam</h4>
+        <p>The one not trying to make a cent. Still running.</p>
+        <div class="tlinks"><a href="https://www.expresskaam.com/" target="_blank" rel="noopener">expresskaam.com</a></div>
+      </div>
+
+      <div class="trow">
+        <div class="trow-meta"><span class="dot" style="background:var(--c-failed)"></span>2025 &middot; failed</div>
+        <h4>ChargeHive</h4>
+        <p>Won ETHDenver 2025. Won a Hedera grant off the back of it. Kept going for months after &mdash; still didn't survive.</p>
+        <div class="tlinks">
+          <a href="https://devfolio.co/projects/chargehive-c25b" target="_blank" rel="noopener">project page</a>
+          &middot; <a href="https://www.youtube.com/watch?v=QwP7yNTC4tQ&list=PLAy4HNUNlzRmmKuiAVJcwnjMikeUBmluQ&index=36&t=26661s" target="_blank" rel="noopener">demo @ 7:24:21</a>
+          &middot; <a href="https://hedera.com/blog/announcing-the-winners-of-eth-denver-2025-hedera-bounties/" target="_blank" rel="noopener">Hedera winners post</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="hackathons">
     <div class="section-head">
-      <h2>the hackathon streak <span class="count">(9 wins &middot; 6 projects)</span></h2>
+      <h2>the hackathon streak</h2>
+      <span class="count">(9 wins)</span>
     </div>
-    <p class="section-sub">2024&ndash;2026, roughly in the order they happened.</p>
+    <p class="section-sub">2024&ndash;2026, newest first. some dates are approximate.</p>
 
-    <div class="hwins">
-
-      <div class="hwin">
-        <div class="hwin-head">
-          <span class="hwin-name">ParkPulse</span>
-          <span class="hwin-cat mono">AI &amp; Blockchain</span>
-        </div>
-        <div class="hwin-chips">
-          <span class="chip">ETHGlobal 2025</span>
-          <span class="chip">VTHacks13</span>
-          <span class="chip">BIT</span>
-          <span class="chip">Hedera HelloFutureOrigin</span>
-        </div>
+    <div class="htimeline">
+      <div class="hrow">
+        <div class="when mono">2026</div>
+        <div><div class="proj">ZoneProof</div><div class="evt">ETHGlobal NYC &mdash; NoSDK Hedera Track</div></div>
       </div>
-
-      <div class="hwin">
-        <div class="hwin-head">
-          <span class="hwin-name">ChargeHive</span>
-          <span class="hwin-cat mono">Blockchain App</span>
-        </div>
-        <div class="hwin-chips">
-          <span class="chip">ETHDenver 2025</span>
-        </div>
+      <div class="hrow">
+        <div class="when mono">2026</div>
+        <div><div class="proj">Snakr</div><div class="evt">Consensus Miami (EasyA) Hackathon</div></div>
       </div>
-
-      <div class="hwin">
-        <div class="hwin-head">
-          <span class="hwin-name">Terratrace</span>
-          <span class="hwin-cat mono">AI for Government</span>
-        </div>
-        <div class="hwin-chips">
-          <span class="chip">c0mpiled &mdash; 10/DC Hackathon</span>
-        </div>
+      <div class="hrow">
+        <div class="when mono">2026</div>
+        <div><div class="proj">Townhall</div><div class="evt">ETHDenver &mdash; ADI Track</div></div>
       </div>
-
-      <div class="hwin">
-        <div class="hwin-head">
-          <span class="hwin-name">Snakr</span>
-          <span class="hwin-cat mono">AI Agents</span>
-        </div>
-        <div class="hwin-chips">
-          <span class="chip">Consensus Miami 2026</span>
-        </div>
+      <div class="hrow">
+        <div class="when mono">2025</div>
+        <div><div class="proj">ChargeHive</div><div class="evt">ETHDenver</div></div>
       </div>
-
-      <div class="hwin">
-        <div class="hwin-head">
-          <span class="hwin-name">Townhall</span>
-          <span class="hwin-cat mono">GovTech</span>
-        </div>
-        <div class="hwin-chips">
-          <span class="chip">ETHDenver 2026 &mdash; ADI Track</span>
-        </div>
+      <div class="hrow">
+        <div class="when mono">2025</div>
+        <div><div class="proj">ParkPulse</div><div class="evt">ETHGlobal</div></div>
       </div>
-
-      <div class="hwin">
-        <div class="hwin-head">
-          <span class="hwin-name">ZoneProof</span>
-          <span class="hwin-cat mono">GovTech</span>
-        </div>
-        <div class="hwin-chips">
-          <span class="chip">ETHGlobal NYC 2026 &mdash; NoSDK Hedera Track</span>
-        </div>
+      <div class="hrow">
+        <div class="when mono">2024&ndash;26</div>
+        <div><div class="proj">ParkPulse</div><div class="evt">VTHacks13</div></div>
       </div>
-
+      <div class="hrow">
+        <div class="when mono">2024&ndash;26</div>
+        <div><div class="proj">ParkPulse</div><div class="evt">BIT</div></div>
+      </div>
+      <div class="hrow">
+        <div class="when mono">2024&ndash;26</div>
+        <div><div class="proj">ParkPulse</div><div class="evt">Hedera HelloFutureOrigin</div></div>
+      </div>
+      <div class="hrow">
+        <div class="when mono">2024&ndash;26</div>
+        <div><div class="proj">Terratrace</div><div class="evt">c0mpiled &mdash; 10/DC Hackathon</div></div>
+      </div>
     </div>
+  </section>
+
+  <section id="thoughts">
+    <div class="section-head">
+      <h2>a couple things i believe</h2>
+    </div>
+
+    <blockquote>
+      <p>&ldquo;Just do it.&rdquo;</p>
+      <cite>&mdash; Nike. best line I've come across so far.</cite>
+    </blockquote>
+
+    <p class="mini-head">books that got me through it</p>
+    <ul class="booklist">
+      <li><b>Can't Hurt Me</b> <span class="by">&mdash; David Goggins</span></li>
+      <li><b>Man's Search for Meaning</b> <span class="by">&mdash; Viktor Frankl</span></li>
+    </ul>
   </section>
 
   <footer>
@@ -669,17 +574,33 @@
 <script>
   (function(){
     var root = document.documentElement;
-    var btn = document.getElementById('themeBtn');
+    var themeBtn = document.getElementById('themeBtn');
     var stored = null;
     try { stored = localStorage.getItem('portfolio-theme'); } catch(e){}
     if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
 
-    btn.addEventListener('click', function(){
+    themeBtn.addEventListener('click', function(){
       var mql = window.matchMedia('(prefers-color-scheme: dark)');
       var current = root.getAttribute('data-theme') || (mql.matches ? 'dark' : 'light');
       var next = current === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('portfolio-theme', next); } catch(e){}
+    });
+
+    var toggle = document.getElementById('failToggle');
+    var timeline = document.getElementById('timeline');
+    function setOpen(open){
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      timeline.hidden = !open;
+    }
+    toggle.addEventListener('click', function(){
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+    toggle.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+      }
     });
   })();
 </script>
