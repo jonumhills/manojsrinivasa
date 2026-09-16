@@ -252,12 +252,12 @@ a.rcard:hover{ border-color:var(--accent); color:var(--accent); }
   width:1px;
   background:var(--border);
 }
-.trow{
+.tgroup{
   position:relative;
   padding:16px 0;
   border-top:1px solid var(--border);
 }
-.trow:last-child{ border-bottom:1px solid var(--border); }
+.tgroup:last-child{ border-bottom:1px solid var(--border); }
 .tyear{
   position:absolute;
   left:-78px;
@@ -275,10 +275,12 @@ a.rcard:hover{ border-color:var(--accent); color:var(--accent); }
   width:9px;
   height:9px;
   border-radius:50%;
+  background:var(--accent);
   border:2px solid var(--bg);
   box-shadow:0 0 0 1px var(--border);
 }
 .prow-line{ margin:0; font-size:15px; line-height:1.75; }
+.prow-line + .prow-line{ margin-top:14px; }
 .prow-line b{ font-weight:700; }
 .prow-line .status{ font-weight:700; }
 .prow-line .status.failed{ color:var(--c-failed); }
