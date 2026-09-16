@@ -149,6 +149,7 @@ h1.page-title{ font-size:26px; margin:0 0 6px; font-weight:700; }
 @keyframes ribbon-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 .rcard{
   flex:none;
+  display:inline-block;
   border:1px solid var(--border);
   border-radius:999px;
   background:var(--surface);
@@ -156,7 +157,11 @@ h1.page-title{ font-size:26px; margin:0 0 6px; font-weight:700; }
   font-size:14.5px;
   font-weight:700;
   white-space:nowrap;
+  color:var(--fg);
+  text-decoration:none;
 }
+a.rcard:hover{ border-color:var(--accent); color:var(--accent); }
+.rcard.hot{ border-color:var(--accent); color:var(--accent); }
 
 /* ---------- failure streak (donut + legend) ---------- */
 .streak{
