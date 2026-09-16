@@ -239,22 +239,52 @@ a.rcard:hover{ border-color:var(--accent); color:var(--accent); }
 .dcard .go{ font-family:"JetBrains Mono", monospace; font-size:11.5px; color:var(--accent); }
 
 /* ---------- project rows ---------- */
-.plist{ display:flex; flex-direction:column; }
-.prow-line{
-  padding:14px 0;
-  border-top:1px solid var(--border);
-  margin:0;
-  font-size:15px;
-  line-height:1.75;
+.tline{
+  position:relative;
+  padding-left:78px;
 }
-.prow-line:last-child{ border-bottom:1px solid var(--border); }
+.tline::before{
+  content:"";
+  position:absolute;
+  left:52px;
+  top:8px;
+  bottom:8px;
+  width:1px;
+  background:var(--border);
+}
+.trow{
+  position:relative;
+  padding:16px 0;
+  border-top:1px solid var(--border);
+}
+.trow:last-child{ border-bottom:1px solid var(--border); }
+.tyear{
+  position:absolute;
+  left:-78px;
+  top:18px;
+  width:40px;
+  text-align:right;
+  font-size:12px;
+  color:var(--muted);
+}
+.tdot{
+  position:absolute;
+  left:-26px;
+  top:21px;
+  transform:translateX(-50%);
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  border:2px solid var(--bg);
+  box-shadow:0 0 0 1px var(--border);
+}
+.prow-line{ margin:0; font-size:15px; line-height:1.75; }
 .prow-line b{ font-weight:700; }
 .prow-line .status{ font-weight:700; }
 .prow-line .status.failed{ color:var(--c-failed); }
 .prow-line .status.nonprofit{ color:var(--c-nonprofit); }
 .prow-line .status.featured{ color:var(--c-featured); }
 .prow-line .status.progress{ color:var(--c-progress); }
-.prow-line .myear{ font-size:12.5px; color:var(--muted); }
 .prow-line .plink{
   font-family:"JetBrains Mono", monospace;
   font-size:12.5px;
@@ -264,36 +294,39 @@ a.rcard:hover{ border-color:var(--accent); color:var(--accent); }
   margin-right:2px;
 }
 .prow-line .plink:hover{ border-color:var(--accent); color:var(--accent); }
-
-/* ---------- hackathon bubble chart ---------- */
-.bubbles{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:center;
-  gap:16px;
-  border:1px solid var(--border);
-  border-radius:16px;
-  background:var(--surface);
-  padding:36px 20px;
-  margin-bottom:32px;
+@media (max-width:480px){
+  .tline{ padding-left:56px; }
+  .tline::before{ left:34px; }
+  .tyear{ left:-56px; width:26px; font-size:10.5px; }
+  .tdot{ left:-22px; }
 }
-.bubble{
-  width:var(--d);
-  height:var(--d);
-  border-radius:50%;
-  border:1px solid var(--accent);
-  background:color-mix(in srgb, var(--accent) 12%, transparent);
+
+/* ---------- hackathon bar chart ---------- */
+.barchart{
   display:flex;
   flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  flex:none;
-  padding:6px;
+  gap:14px;
+  margin-bottom:36px;
 }
-.bubble .bname{ font-size:var(--fs); font-weight:700; line-height:1.15; }
-.bubble .bcount{ font-size:10.5px; color:var(--muted); margin-top:3px; }
+.bar-row{
+  display:grid;
+  grid-template-columns:104px 1fr 22px;
+  align-items:center;
+  gap:12px;
+}
+.bar-name{ font-size:13.5px; font-weight:700; }
+.bar-track{
+  height:9px;
+  border-radius:5px;
+  background:var(--border);
+  overflow:hidden;
+}
+.bar-fill{ height:100%; background:var(--accent); border-radius:5px; }
+.bar-count{ font-size:12.5px; color:var(--muted); text-align:right; }
+@media (max-width:480px){
+  .bar-row{ grid-template-columns:76px 1fr 20px; gap:8px; }
+  .bar-name{ font-size:12px; }
+}
 
 .bgroups{ display:flex; flex-direction:column; }
 .bgroup{ padding:14px 0; border-top:1px solid var(--border); }
