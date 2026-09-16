@@ -303,6 +303,30 @@ a.rcard:hover{ border-color:var(--accent); color:var(--accent); }
   margin-right:2px;
 }
 .prow-line .plink:hover{ border-color:var(--accent); color:var(--accent); }
+.prow-line .psub{ font-weight:400; color:var(--muted); }
+.ptags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:9px;
+}
+.ptag{
+  font-family:"JetBrains Mono", monospace;
+  font-size:10px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--muted);
+  border:1px solid var(--border);
+  border-radius:5px;
+  padding:4px 8px;
+  white-space:nowrap;
+}
+a.ptag.ptag-link{
+  color:var(--accent);
+  border-color:var(--accent);
+  text-decoration:none;
+}
+a.ptag.ptag-link:hover{ background:var(--accent); color:var(--bg); }
 @media (max-width:480px){
   .tline{ padding-left:56px; }
   .tline::before{ left:34px; }
