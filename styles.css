@@ -334,33 +334,12 @@ a.ptag.ptag-link:hover{ background:var(--accent); color:var(--bg); }
   .tdot{ left:-22px; }
 }
 
-/* ---------- hackathon node graph (ParkPulse) ---------- */
-.pgraph{
-  width:100%;
-  height:auto;
-  display:block;
-  margin-top:12px;
-}
-.pgraph .edge{ fill:none; stroke:var(--border); stroke-width:1.5; }
-.pgraph .hub-rect{ fill:var(--accent); stroke:var(--accent); }
-.pgraph .hub-text{
-  fill:var(--bg);
-  font-family:"Space Grotesk", sans-serif;
-  font-weight:700;
-  font-size:15px;
-}
-.pgraph .leaf-rect{ fill:var(--surface); stroke:var(--border); }
-.pgraph .leaf-text{
-  fill:var(--fg);
-  font-family:"JetBrains Mono", monospace;
-  font-size:12px;
-}
-
 /* ---------- hackathon photo gallery ---------- */
 .photogrid{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(140px, 1fr));
   gap:10px;
+  margin-top:40px;
 }
 .photogrid img{
   width:100%;
@@ -369,15 +348,6 @@ a.ptag.ptag-link:hover{ background:var(--accent); color:var(--bg); }
   border-radius:10px;
   border:1px solid var(--border);
   display:block;
-}
-.photo-empty{
-  grid-column:1 / -1;
-  border:1px dashed var(--border);
-  border-radius:12px;
-  padding:40px 20px;
-  text-align:center;
-  color:var(--muted);
-  font-size:13px;
 }
 
 /* ---------- books ---------- */
