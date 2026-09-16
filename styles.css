@@ -334,23 +334,47 @@ a.ptag.ptag-link:hover{ background:var(--accent); color:var(--bg); }
   .tdot{ left:-22px; }
 }
 
-/* ---------- hackathon leaderboard ---------- */
-.lboard{ display:flex; flex-direction:column; }
-.lrow{
-  display:grid;
-  grid-template-columns:30px 1fr;
-  gap:14px;
-  padding:16px 0;
+/* ---------- hackathon node graph (ParkPulse) ---------- */
+.eyebrow2{
+  font-size:11px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+.pgraph{
+  width:100%;
+  height:auto;
+  display:block;
+  margin-bottom:36px;
+}
+.pgraph .edge{ fill:none; stroke:var(--border); stroke-width:1.5; }
+.pgraph .hub-rect{ fill:var(--accent); stroke:var(--accent); }
+.pgraph .hub-text{
+  fill:var(--bg);
+  font-family:"Space Grotesk", sans-serif;
+  font-weight:700;
+  font-size:15px;
+}
+.pgraph .leaf-rect{ fill:var(--surface); stroke:var(--border); }
+.pgraph .leaf-text{
+  fill:var(--fg);
+  font-family:"JetBrains Mono", monospace;
+  font-size:12px;
+}
+
+/* ---------- remaining single-win projects ---------- */
+.hlist{ display:flex; flex-direction:column; }
+.hrow2{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:14px 0;
   border-top:1px solid var(--border);
 }
-.lrow:last-child{ border-bottom:1px solid var(--border); }
-.lrank{ font-size:13px; color:var(--muted); padding-top:2px; }
-.lname{ font-size:16px; font-weight:700; }
-.lname .lcount{ font-weight:400; color:var(--muted); font-size:12.5px; margin-left:2px; }
-.levents{ margin-top:4px; color:var(--muted); font-size:13px; }
-@media (max-width:480px){
-  .lrow{ grid-template-columns:22px 1fr; gap:10px; }
-}
+.hrow2:last-child{ border-bottom:1px solid var(--border); }
+.hrow2 .pname{ font-size:15px; font-weight:700; }
 
 /* ---------- books ---------- */
 blockquote{
