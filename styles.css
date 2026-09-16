@@ -167,12 +167,20 @@ a.rcard:hover{ border-color:var(--accent); color:var(--accent); }
 .streak{
   display:flex;
   align-items:center;
-  gap:28px;
+  gap:12px 28px;
   border:1px solid var(--border);
   border-radius:16px;
   background:var(--surface);
   padding:22px 24px;
   flex-wrap:wrap;
+  text-decoration:none;
+  color:var(--fg);
+}
+.streak:hover{ border-color:var(--accent); }
+.streak-go{
+  width:100%;
+  font-size:12px;
+  color:var(--accent);
 }
 .donut{
   flex:none;
@@ -269,20 +277,42 @@ a.rcard:hover{ border-color:var(--accent); color:var(--accent); }
 }
 .prow a.plink:hover{ border-color:var(--accent); color:var(--accent); }
 
-/* ---------- hackathon timeline ---------- */
-.htimeline{ display:flex; flex-direction:column; }
-.hrow{
-  display:grid;
-  grid-template-columns:64px 1fr;
+/* ---------- hackathon bubble chart ---------- */
+.bubbles{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
   gap:16px;
-  padding:14px 0;
-  border-top:1px solid var(--border);
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:var(--surface);
+  padding:36px 20px;
+  margin-bottom:32px;
 }
-.hrow:last-child{ border-bottom:1px solid var(--border); }
-.hrow .when{ font-family:"JetBrains Mono", monospace; font-size:12px; color:var(--muted); padding-top:2px; }
-.hrow .proj{ font-weight:700; font-size:14.5px; }
-.hrow .evt{ color:var(--muted); font-size:13px; margin-top:2px; }
-@media (max-width:520px){ .hrow{ grid-template-columns:1fr; gap:3px; } }
+.bubble{
+  width:var(--d);
+  height:var(--d);
+  border-radius:50%;
+  border:1px solid var(--accent);
+  background:color-mix(in srgb, var(--accent) 12%, transparent);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  flex:none;
+  padding:6px;
+}
+.bubble .bname{ font-size:var(--fs); font-weight:700; line-height:1.15; }
+.bubble .bcount{ font-size:10.5px; color:var(--muted); margin-top:3px; }
+
+.bgroups{ display:flex; flex-direction:column; }
+.bgroup{ padding:14px 0; border-top:1px solid var(--border); }
+.bgroup:last-child{ border-bottom:1px solid var(--border); }
+.bgroup-head{ font-weight:700; font-size:14.5px; }
+.bgroup-head .mono{ color:var(--muted); font-weight:400; font-size:12.5px; }
+.bgroup p{ margin:4px 0 0; color:var(--muted); font-size:13px; }
 
 /* ---------- books ---------- */
 blockquote{
