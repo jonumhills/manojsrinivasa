@@ -242,20 +242,22 @@ a.rcard:hover{ border-color:var(--accent); color:var(--accent); }
 .plist{ display:flex; flex-direction:column; }
 .prow{ padding:20px 0; border-top:1px solid var(--border); }
 .prow:last-child{ border-bottom:1px solid var(--border); }
-.prow-head{ display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-bottom:4px; }
-.prow-head h3{ font-size:16.5px; margin:0; font-weight:700; }
-.prow-head .tagline{ font-size:14.5px; color:var(--muted); }
-.tag{
+.prow-head{ display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-bottom:4px; }
+.prow-head h3{ font-size:17px; margin:0; font-weight:700; }
+.badge{
   font-family:"JetBrains Mono", monospace;
   font-size:10px;
+  font-weight:700;
   letter-spacing:.06em;
   text-transform:uppercase;
-  color:var(--accent);
-  border:1px solid var(--accent);
-  border-radius:999px;
-  padding:2px 9px;
-  margin-left:2px;
+  padding:3px 9px;
+  border-radius:5px;
+  white-space:nowrap;
 }
+.badge.failed{ background:color-mix(in srgb, var(--c-failed) 16%, transparent); color:var(--c-failed); }
+.badge.nonprofit{ background:color-mix(in srgb, var(--c-nonprofit) 16%, transparent); color:var(--c-nonprofit); }
+.badge.featured{ background:color-mix(in srgb, var(--c-featured) 16%, transparent); color:var(--c-featured); }
+.badge.progress{ background:color-mix(in srgb, var(--c-progress) 16%, transparent); color:var(--c-progress); }
 .prow-meta{
   font-family:"JetBrains Mono", monospace;
   font-size:11px;
