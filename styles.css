@@ -312,13 +312,13 @@ a.rcard:hover{ border-color:var(--accent); color:var(--accent); }
 }
 .ptag{
   font-family:"JetBrains Mono", monospace;
-  font-size:10px;
-  letter-spacing:.04em;
+  font-size:9px;
+  letter-spacing:.03em;
   text-transform:uppercase;
   color:var(--muted);
   border:1px solid var(--border);
-  border-radius:5px;
-  padding:4px 8px;
+  border-radius:4px;
+  padding:3px 7px;
   white-space:nowrap;
 }
 a.ptag.ptag-link{
@@ -334,39 +334,23 @@ a.ptag.ptag-link:hover{ background:var(--accent); color:var(--bg); }
   .tdot{ left:-22px; }
 }
 
-/* ---------- hackathon bar chart ---------- */
-.barchart{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin-bottom:36px;
-}
-.bar-row{
+/* ---------- hackathon leaderboard ---------- */
+.lboard{ display:flex; flex-direction:column; }
+.lrow{
   display:grid;
-  grid-template-columns:104px 1fr 22px;
-  align-items:center;
-  gap:12px;
+  grid-template-columns:30px 1fr;
+  gap:14px;
+  padding:16px 0;
+  border-top:1px solid var(--border);
 }
-.bar-name{ font-size:13.5px; font-weight:700; }
-.bar-track{
-  height:9px;
-  border-radius:5px;
-  background:var(--border);
-  overflow:hidden;
-}
-.bar-fill{ height:100%; background:var(--accent); border-radius:5px; }
-.bar-count{ font-size:12.5px; color:var(--muted); text-align:right; }
+.lrow:last-child{ border-bottom:1px solid var(--border); }
+.lrank{ font-size:13px; color:var(--muted); padding-top:2px; }
+.lname{ font-size:16px; font-weight:700; }
+.lname .lcount{ font-weight:400; color:var(--muted); font-size:12.5px; margin-left:2px; }
+.levents{ margin-top:4px; color:var(--muted); font-size:13px; }
 @media (max-width:480px){
-  .bar-row{ grid-template-columns:76px 1fr 20px; gap:8px; }
-  .bar-name{ font-size:12px; }
+  .lrow{ grid-template-columns:22px 1fr; gap:10px; }
 }
-
-.bgroups{ display:flex; flex-direction:column; }
-.bgroup{ padding:14px 0; border-top:1px solid var(--border); }
-.bgroup:last-child{ border-bottom:1px solid var(--border); }
-.bgroup-head{ font-weight:700; font-size:14.5px; }
-.bgroup-head .mono{ color:var(--muted); font-weight:400; font-size:12.5px; }
-.bgroup p{ margin:4px 0 0; color:var(--muted); font-size:13px; }
 
 /* ---------- books ---------- */
 blockquote{
