@@ -100,7 +100,8 @@ header.hero{
   overflow:hidden;
 }
 .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
-.hero-id .name{ font-size:24px; font-weight:700; margin-bottom:8px; }
+.hero-id .name{ font-size:24px; font-weight:700; margin-bottom:4px; }
+.hero-id .tagline{ font-size:13.5px; color:var(--muted); margin-bottom:10px; }
 .contact{
   display:flex; gap:16px; flex-wrap:wrap;
   font-family:"JetBrains Mono", monospace;
@@ -110,19 +111,11 @@ header.hero{
 .contact a:hover{ color:var(--accent); border-color:var(--accent); }
 
 /* ---------- section heads ---------- */
-.eyebrow{
-  font-family:"JetBrains Mono", monospace;
-  font-size:11px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin:0 0 12px;
-}
 .section-head{
   display:flex;
   align-items:baseline;
   gap:8px;
-  margin-bottom:4px;
+  margin-bottom:20px;
 }
 .section-head h1, .section-head h2{
   font-size:21px;
@@ -156,14 +149,14 @@ h1.page-title{ font-size:26px; margin:0 0 6px; font-weight:700; }
 @keyframes ribbon-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 .rcard{
   flex:none;
-  width:230px;
   border:1px solid var(--border);
-  border-radius:12px;
+  border-radius:999px;
   background:var(--surface);
-  padding:16px 18px;
+  padding:10px 22px;
+  font-size:14.5px;
+  font-weight:700;
+  white-space:nowrap;
 }
-.rcard h3{ font-size:15px; margin:0 0 6px; font-weight:700; }
-.rcard p{ font-size:12.5px; color:var(--muted); margin:0; line-height:1.5; }
 
 /* ---------- failure streak (donut + legend) ---------- */
 .streak{
