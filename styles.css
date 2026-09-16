@@ -240,44 +240,30 @@ a.rcard:hover{ border-color:var(--accent); color:var(--accent); }
 
 /* ---------- project rows ---------- */
 .plist{ display:flex; flex-direction:column; }
-.prow{ padding:20px 0; border-top:1px solid var(--border); }
-.prow:last-child{ border-bottom:1px solid var(--border); }
-.prow-head{ display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-bottom:4px; }
-.prow-head h3{ font-size:17px; margin:0; font-weight:700; }
-.badge{
-  font-family:"JetBrains Mono", monospace;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  padding:3px 9px;
-  border-radius:5px;
-  white-space:nowrap;
+.prow-line{
+  padding:14px 0;
+  border-top:1px solid var(--border);
+  margin:0;
+  font-size:15px;
+  line-height:1.75;
 }
-.badge.failed{ background:color-mix(in srgb, var(--c-failed) 16%, transparent); color:var(--c-failed); }
-.badge.nonprofit{ background:color-mix(in srgb, var(--c-nonprofit) 16%, transparent); color:var(--c-nonprofit); }
-.badge.featured{ background:color-mix(in srgb, var(--c-featured) 16%, transparent); color:var(--c-featured); }
-.badge.progress{ background:color-mix(in srgb, var(--c-progress) 16%, transparent); color:var(--c-progress); }
-.prow-meta{
+.prow-line:last-child{ border-bottom:1px solid var(--border); }
+.prow-line b{ font-weight:700; }
+.prow-line .status{ font-weight:700; }
+.prow-line .status.failed{ color:var(--c-failed); }
+.prow-line .status.nonprofit{ color:var(--c-nonprofit); }
+.prow-line .status.featured{ color:var(--c-featured); }
+.prow-line .status.progress{ color:var(--c-progress); }
+.prow-line .myear{ font-size:12.5px; color:var(--muted); }
+.prow-line .plink{
   font-family:"JetBrains Mono", monospace;
-  font-size:11px;
+  font-size:12.5px;
   color:var(--muted);
-  margin-bottom:6px;
-}
-.prow .plinks{
-  display:flex;
-  flex-wrap:wrap;
-  gap:4px 14px;
-  margin-top:6px;
-}
-.prow a.plink{
-  font-family:"JetBrains Mono", monospace;
-  font-size:12px;
-  color:var(--fg);
   text-decoration:none;
   border-bottom:1px solid var(--border);
+  margin-right:2px;
 }
-.prow a.plink:hover{ border-color:var(--accent); color:var(--accent); }
+.prow-line .plink:hover{ border-color:var(--accent); color:var(--accent); }
 
 /* ---------- hackathon bubble chart ---------- */
 .bubbles{
