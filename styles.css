@@ -335,18 +335,11 @@ a.ptag.ptag-link:hover{ background:var(--accent); color:var(--bg); }
 }
 
 /* ---------- hackathon node graph (ParkPulse) ---------- */
-.eyebrow2{
-  font-size:11px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin:0 0 10px;
-}
 .pgraph{
   width:100%;
   height:auto;
   display:block;
-  margin-bottom:36px;
+  margin-top:12px;
 }
 .pgraph .edge{ fill:none; stroke:var(--border); stroke-width:1.5; }
 .pgraph .hub-rect{ fill:var(--accent); stroke:var(--accent); }
@@ -363,18 +356,29 @@ a.ptag.ptag-link:hover{ background:var(--accent); color:var(--bg); }
   font-size:12px;
 }
 
-/* ---------- remaining single-win projects ---------- */
-.hlist{ display:flex; flex-direction:column; }
-.hrow2{
-  display:flex;
-  align-items:center;
+/* ---------- hackathon photo gallery ---------- */
+.photogrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(140px, 1fr));
   gap:10px;
-  flex-wrap:wrap;
-  padding:14px 0;
-  border-top:1px solid var(--border);
 }
-.hrow2:last-child{ border-bottom:1px solid var(--border); }
-.hrow2 .pname{ font-size:15px; font-weight:700; }
+.photogrid img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:10px;
+  border:1px solid var(--border);
+  display:block;
+}
+.photo-empty{
+  grid-column:1 / -1;
+  border:1px dashed var(--border);
+  border-radius:12px;
+  padding:40px 20px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+}
 
 /* ---------- books ---------- */
 blockquote{
